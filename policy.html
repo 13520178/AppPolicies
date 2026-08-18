@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main class="container legal">
+<main class="container legal" id="policy-content" hidden>
 <p class="eyebrow" id="app-eyebrow">Application</p>
 <h1>Privacy Policy</h1>
 
@@ -57,6 +57,14 @@
 <p><a href="index.html">View all applications</a></p>
 </main>
 
+<main class="container" id="invalid-app" hidden>
+<p class="eyebrow">Error</p>
+<h1>Invalid application</h1>
+<p>The application name in this link is missing or is not recognized.</p>
+<p>Please verify the link or select an application from the official list.</p>
+<p><a href="index.html">View all applications</a></p>
+</main>
+
 <script>
 (function () {
   "use strict";
@@ -66,20 +74,20 @@
   ]);
 
   const requestedName = new URLSearchParams(window.location.search).get("app");
-  const appName = requestedName && supportedApps.has(requestedName)
-    ? requestedName
-    : "the Application";
+
+  if (!requestedName || !supportedApps.has(requestedName)) {
+    document.getElementById("invalid-app").hidden = false;
+    document.title = "Invalid application";
+    return;
+  }
 
   document.querySelectorAll(".app-name").forEach(function (element) {
-    element.textContent = appName;
+    element.textContent = requestedName;
   });
 
-  document.getElementById("app-eyebrow").textContent =
-    appName === "the Application" ? "Application" : appName;
-
-  document.title = appName === "the Application"
-    ? "Privacy Policy"
-    : "Privacy Policy — " + appName;
+  document.getElementById("app-eyebrow").textContent = requestedName;
+  document.getElementById("policy-content").hidden = false;
+  document.title = "Privacy Policy — " + requestedName;
 })();
 </script>
 </body>
