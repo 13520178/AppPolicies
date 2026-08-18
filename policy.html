@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Privacy Policy for our mobile applications">
+<title>Privacy Policy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="container legal">
+<p class="eyebrow" id="app-eyebrow">Application</p>
+<h1>Privacy Policy</h1>
+
+<p>This Privacy Policy applies to <strong class="app-name">the Application</strong> (the “Application”), developed and provided by Phan Nhat Dang (the “Developer”). The Application is provided on an “AS IS” and “AS AVAILABLE” basis.</p>
+
+<h2>Information Collection</h2>
+<p>The Application does not collect, transmit, store, or share personal information or personally identifiable information. It does not require users to create an account or provide a name, email address, phone number, location, contacts, photos, or other personal details.</p>
+
+<h2>Local Data Storage</h2>
+<p>Information, preferences, calculations, records, and other content created while using the Application are processed and stored locally on the user’s device. The Developer does not have access to this locally stored data.</p>
+<p>Removing the Application may permanently delete its local data unless the data is retained through a device backup or synchronization service independently enabled by the user or the operating system.</p>
+
+<h2>Analytics, Advertising, and Tracking</h2>
+<p>The Application does not contain third-party advertising and does not use third-party analytics, tracking technologies, advertising identifiers, profiling tools, or marketing SDKs. The Developer does not track users across applications, websites, or services.</p>
+
+<h2>In-App Purchases</h2>
+<p>The Application may offer optional in-app purchases, including one-time purchases or subscriptions. Purchases and payment transactions are processed by Apple through the App Store. The Developer does not collect, receive, process, or store payment-card details, Apple Account credentials, or billing information.</p>
+<p>The Application may receive limited purchase-status information from Apple that is necessary to unlock purchased features, restore purchases, or determine subscription entitlement. This information is not used by the Developer for advertising, tracking, profiling, or analytics.</p>
+<p>Apple may process information necessary to complete purchases, maintain purchase history, manage subscriptions, restore purchases, prevent fraud, comply with legal obligations, and provide App Store services. Apple’s handling of that information is governed by <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">Apple’s Privacy Policy</a>.</p>
+<p>Users can manage subscriptions through their Apple Account settings. Billing, refund, payment-method, and App Store transaction requests may need to be submitted directly to Apple.</p>
+
+<h2>Third-Party Services</h2>
+<p>Except for Apple services required to distribute the Application and process in-app purchases, the Application does not intentionally send user data to third-party services. Standard operating-system services supplied by Apple are governed by Apple’s applicable terms and privacy policies.</p>
+
+<h2>Children’s Privacy</h2>
+<p>The Application does not knowingly collect personal information from children or any other users. Parents and guardians should supervise children’s use of the Application and any in-app purchases.</p>
+
+<h2>Security</h2>
+<p>User-created data remains on the user’s device and is protected by the security measures provided by the device and operating system. Users are responsible for maintaining the security of their devices, backups, passcodes, Apple Accounts, and locally stored information.</p>
+
+<h2>Disclaimer</h2>
+<p>The Application and all information, calculations, estimates, projections, results, recommendations, tools, and other content provided through it are intended solely for general informational, educational, and reference purposes.</p>
+<p>The Application does not provide professional advice and is not a substitute for advice, diagnosis, judgment, evaluation, or services from a qualified professional. Nothing in the Application should be interpreted as financial, investment, legal, tax, accounting, medical, healthcare, psychological, nutritional, engineering, construction, safety, or other professional advice.</p>
+<p>The Application is not a medical device and is not intended to diagnose, treat, cure, mitigate, monitor, or prevent any disease, injury, medical condition, or health condition.</p>
+<p>Results may be estimates and may be incomplete, inaccurate, outdated, or unsuitable for a particular purpose. Users should independently verify important information and consult an appropriately qualified professional before making decisions or taking action based on the Application.</p>
+<p>The Application must not be relied upon in emergencies, safety-critical situations, medical decisions, financial transactions, or any situation in which an error could result in injury, loss, damage, or other significant consequences. Use of the Application and reliance on its content are entirely at the user’s own risk.</p>
+
+<h2>Limitation of Liability</h2>
+<p>To the maximum extent permitted by applicable law, the Developer is not responsible for decisions, actions, losses, injuries, damages, costs, or other consequences arising from or related to the use of, inability to use, or reliance on the Application or its content.</p>
+
+<h2>Changes to This Policy</h2>
+<p>This Privacy Policy may be updated from time to time to reflect changes to the Application, legal requirements, or operating practices. Updates will be posted on this page with a revised effective date.</p>
+
+<p><strong>Effective Date:</strong> August 18, 2026</p>
+<p><strong>Contact:</strong> <a href="mailto:phannhatd@gmail.com">phannhatd@gmail.com</a></p>
+<p><a href="index.html">View all applications</a></p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  const supportedApps = new Set([
+    "Future Value Calculator"
+  ]);
+
+  const requestedName = new URLSearchParams(window.location.search).get("app");
+  const appName = requestedName && supportedApps.has(requestedName)
+    ? requestedName
+    : "the Application";
+
+  document.querySelectorAll(".app-name").forEach(function (element) {
+    element.textContent = appName;
+  });
+
+  document.getElementById("app-eyebrow").textContent =
+    appName === "the Application" ? "Application" : appName;
+
+  document.title = appName === "the Application"
+    ? "Privacy Policy"
+    : "Privacy Policy — " + appName;
+})();
+</script>
+</body>
+</html>
